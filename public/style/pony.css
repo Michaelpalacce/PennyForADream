@@ -1,0 +1,9 @@
+.pony{
+    cursor: pointer;
+    width: 525px;
+    height: 650px;
+    position: fixed;
+    left: 700px;
+    border-radius: 50px;
+    outline-color: black;
+}

@@ -9,27 +9,56 @@ define( 'Component', ['makeId'], function ( makeId )
 		 */
 		constructor( props = {} )
 		{
-			this.setUpPropsDefaults( props );
 			this.id				= makeId( 32 );
-			this.props			= props;
 			this.state			= {};
-			this.element		= this.render();
-			this.state			= {
-				clicked: false
-			};
-
 			this.stateEvents	= {};
+			this.props			= this.setUpPropsDefaults( props );
+			this.element		= this.render();
 
 			this.attachEvents();
 		}
 
+		/**
+		 * @brief	Removes the element from the DOM and removes all callbacks
+		 *
+		 * @details	Calls detachEvents
+		 *
+		 * @return	void
+		 */
+		remove()
+		{
+			this.element.remove();
+			this.stateEvents	= {};
+			this.state			= {};
+		}
+
+		/**
+		 * @brief	Extracts data from the props provided by the constructor and sets up defaults if none were provided
+		 *
+		 * @param	Object props
+		 *
+		 * @return	Object
+		 */
 		setUpPropsDefaults( props )
 		{
 			props.style	= typeof props.style === 'undefined' ? {} : props.style;
+
+			return props;
 		}
 
+		/**
+		 * @brief	Adds a callback for the given state change
+		 *
+		 * @param	String state
+		 * @param	Function callback
+		 */
 		addOnStateChanged( state, callback )
 		{
+			if ( typeof state !== 'string' && typeof callback !== 'function' )
+			{
+				throw new Error( 'Invalid constructor arguments provided' );
+			}
+
 			if ( typeof this.stateEvents[state] === "undefined" )
 			{
 				this.stateEvents[state]	= [];
@@ -38,6 +67,14 @@ define( 'Component', ['makeId'], function ( makeId )
 			this.stateEvents[state].push( callback );
 		}
 
+		/**
+		 * @brief	Dispatches a state Change
+		 *
+		 * @param	String state
+		 * @param	Mixed change
+		 *
+		 * @return	void
+		 */
 		dispatchStateChanged( state, change )
 		{
 			if ( typeof this.stateEvents[state] === "undefined" )
@@ -51,7 +88,7 @@ define( 'Component', ['makeId'], function ( makeId )
 		}
 
 		/**
-		 * @breif	Sets state params to the state of the component
+		 * @brief	Sets state params to the state of the component
 		 *
 		 * @param	Object state
 		 *
@@ -72,13 +109,29 @@ define( 'Component', ['makeId'], function ( makeId )
 
 		/**
 		 * @brief	Attaches events to the rendered object
+		 *
+		 * @return	void
 		 */
 		attachEvents()
+		{
+			this.addOnStateChanged( 'style', ( value )=>{
+				this.element.css( value );
+			} )
+		}
+
+		/**
+		 * @brief	Detaches all events of the rendered object
+		 *
+		 * @return	void
+		 */
+		detachEvents()
 		{
 		}
 
 		/**
 		 * @brief	Detaches the object from the DOM
+		 *
+		 * @return	void
 		 */
 		detach()
 		{
@@ -89,6 +142,8 @@ define( 'Component', ['makeId'], function ( makeId )
 		 * @brief	Detaches and then reattaches the element to the given elementToAppendTo
 		 *
 		 * @param	jQueryElement elementToAppendTo
+		 *
+		 * @return	void
 		 */
 		attachTo( elementToAppendTo )
 		{
@@ -97,11 +152,18 @@ define( 'Component', ['makeId'], function ( makeId )
 			this.element.appendTo( elementToAppendTo );
 		}
 
+		/**
+		 * @brief	Public render function to be called when the rendering is needed
+		 *
+		 * @details	_render should be implemented instead of this function
+		 *
+		 * @return	String
+		 */
 		render()
 		{
-			let element	= this._render();
+			let element	= $( this._render() );
 
-			element.css(this.props.style);
+			element.css( this.props.style );
 
 			return element;
 		}

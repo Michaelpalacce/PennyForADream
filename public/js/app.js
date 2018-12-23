@@ -1,8 +1,12 @@
 const CoinBag	= require( 'CoinBag' );
+const DreamBox	= require( 'DreamBox' );
 
 $( document ).ready( function ()
 {
-	let coinBag	= new CoinBag();
+	let dreamBox	= new DreamBox();
+	let coinBag		= new CoinBag( {
+		dreamBox	: dreamBox
+	} );
 
 	coinBag.attachTo( $( '#app' ) );
 	coinBag.fillWithCoins();

@@ -1,9 +1,10 @@
 .pony{
-    cursor: pointer;
-    width: 525px;
-    height: 650px;
-    position: fixed;
-    left: 700px;
+    width: auto;
+    height: 500px;
+    position: relative;
     border-radius: 50px;
-    outline-color: black;
+}
+
+.pony-container{
+    text-align: center;
 }

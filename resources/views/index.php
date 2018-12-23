@@ -3,19 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport">
-	<title>Dream For A Penny</title>
+	<title>Penny For A Dream</title>
 	<link rel="stylesheet" href="/style/coin.css">
 	<link rel="stylesheet" href="/style/pony.css">
 	<link rel="stylesheet" href="/style/coinBag.css">
+	<link rel="stylesheet" href="/style/dreamBox.css">
 	<style>
 		body{
-			background-image: linear-gradient( to left, #9C5F6A, #E9B8C6, #CC7897, #9EACBB, #62A0B4 )
+			background: #8EFBFF
 		}
 	</style>
 </head>
 <body>
 	<div id="app">
-		<img src="/img/pony.png" alt="coin" class="pony">
+		<div class="pony-container">
+			<img src="/img/pony.png" alt="pony" class="pony">
+		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

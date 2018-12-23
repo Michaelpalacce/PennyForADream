@@ -1,0 +1,31 @@
+.dream-box{
+    width: 300px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: #fff;
+    position:fixed;
+    animation: fadein 1s;
+}
+
+.dream-bo:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: fixed;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #00bfb6;
+    border-top: 10px solid #00bfb6;
+    border-bottom: 10px solid transparent;
+}
+
+.dream-input{
+    width: 100%;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

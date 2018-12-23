@@ -15,7 +15,14 @@ define( 'View', [], function ()
 		 */
 		indexAction()
 		{
-			console.log( 'Implement' );
+			this.render();
+		}
+
+		/**
+		 * @brief	Renders the page elements
+		 */
+		render()
+		{
 		}
 	}
 

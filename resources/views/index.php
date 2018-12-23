@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="/style/pony.css">
 	<link rel="stylesheet" href="/style/coinBag.css">
 	<link rel="stylesheet" href="/style/dreamBox.css">
+	<link rel="stylesheet" href="/style/toolbar.css">
 	<style>
 		body{
 			background: #8EFBFF
@@ -15,11 +16,7 @@
 	</style>
 </head>
 <body>
-	<div id="app">
-		<div class="pony-container">
-			<img src="/img/pony.png" alt="pony" class="pony">
-		</div>
-	</div>
+	<div id="app"></div>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>

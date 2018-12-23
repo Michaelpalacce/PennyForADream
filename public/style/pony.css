@@ -3,8 +3,10 @@
     height: 500px;
     position: relative;
     border-radius: 50px;
+    user-select: none;
 }
 
 .pony-container{
     text-align: center;
+    user-select: none;
 }

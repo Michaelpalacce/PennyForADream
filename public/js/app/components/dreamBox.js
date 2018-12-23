@@ -1,6 +1,10 @@
 'use strict';
 
-define( 'DreamBox', ['Component'], function ( Component ) {
+/**
+ * @brief	Dream box component used to render the dream box input and container
+ */
+define( 'DreamBox', ['Component'], function ( Component )
+{
 	class DreamBox extends Component
 	{
 		/**

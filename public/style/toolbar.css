@@ -1,0 +1,24 @@
+.toolbar-btn
+{
+    user-select: none;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    right: 100px;
+    background: grey;
+    position: fixed;
+    display: inline-block;
+}
+
+.toolbar{
+    display: none;
+    top: 50px;
+    width: 100%;
+    position: fixed;
+    user-select: none;
+    background: #fff;
+}
+
+.toolbar-element{
+    display: block;
+}

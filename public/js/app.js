@@ -1,13 +1,8 @@
-const CoinBag	= require( 'CoinBag' );
-const DreamBox	= require( 'DreamBox' );
+const Kernel	= require( 'Kernel' );
+const viewMap	= require( 'ViewMap' );
 
 $( document ).ready( function ()
 {
-	let dreamBox	= new DreamBox();
-	let coinBag		= new CoinBag( {
-		dreamBox	: dreamBox
-	} );
-
-	coinBag.attachTo( $( '#app' ) );
-	coinBag.fillWithCoins();
+	let kernel	= new Kernel( viewMap );
+	kernel.handle();
 } );

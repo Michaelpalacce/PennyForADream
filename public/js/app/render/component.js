@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @brief	Main component definition that is inherited by every renderable element
+ */
 define( 'Component', ['makeId'], function ( makeId )
 {
 	class Component

@@ -1,3 +1,8 @@
+/**
+ * @brief	Function used to make unique ids
+ *
+ * @details	This will never return an id that already exists as it saves it internally
+ */
 define( 'makeId', [], function ()
 {
 	let currentIds	= [''];
@@ -8,7 +13,7 @@ define( 'makeId', [], function ()
 
 		do {
 			text			= '';
-			let possible	= "abef";
+			let possible	= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 			for ( let i = 0; i < length; i ++ )
 				text	+= possible.charAt( Math.floor( Math.random() * possible.length ) );

@@ -1,4 +1,4 @@
-define( 'CoinBag', ['Component', 'Coin'] , function (Component, Coin )
+define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 {
 	class CoinBag extends Component
 	{

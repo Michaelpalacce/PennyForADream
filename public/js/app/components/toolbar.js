@@ -28,13 +28,20 @@ define( 'Toolbar', ['Component', 'ToolbarElement'], function ( Component, Toolba
 		_render()
 		{
 			this.getAllToolbarElements();
-			let toolbar	= $( '<div id="toolbar-btn" class="toolbar-btn"><div id="toolbar" class="toolbar"></div></div>' );
+			let toolbarBtn		= $(
+				'<div>' +
+					'<ul id="menu" class="menu">' +
+						'<li title="home"><a href="#" class="menu-button home"></a></li>' +
+					'</ul>' +
+					'<ul id="menu-bar" class="menu-bar"></ul>' +
+				'</div>' );
+			let toolbarInside	= toolbarBtn.find( '#menu-bar' );
 
 			this.state.toolbarElements.forEach(( toolbarElement )=>{
-				toolbar.find( '.toolbar' ).append( toolbarElement.element );
+				toolbarInside.append( toolbarElement.element );
 			});
 
-			return toolbar;
+			return toolbarBtn;
 		}
 
 		/**
@@ -44,13 +51,13 @@ define( 'Toolbar', ['Component', 'ToolbarElement'], function ( Component, Toolba
 		{
 			super.attachEvents();
 
-			this.element.closest( '#toolbar-btn' ).on( 'click', ( event )=>{
+			this.element.find( '.menu-button' ).on( 'click', ( event )=>{
 				this.setState( { clicked: ! this.state.clicked } );
 			});
 
 			this.addOnStateChanged( 'clicked', ( state )=>{
-				state ? this.element.find( '#toolbar' ).show() : this.element.find( '#toolbar' ).hide();
-			} )
+				this.element.find( '.menu-bar' ).toggleClass( 'open' );
+			});
 		}
 
 		/**

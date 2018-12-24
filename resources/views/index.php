@@ -11,12 +11,13 @@
 	<link rel="stylesheet" href="/style/toolbar.css">
 	<style>
 		body{
-			background: #8EFBFF
+			background: #a5c3df;
 		}
 	</style>
 </head>
-<body>
+<body id="body">
 	<div id="app"></div>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>

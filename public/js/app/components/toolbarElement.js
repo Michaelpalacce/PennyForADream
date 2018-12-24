@@ -22,7 +22,7 @@ define( 'ToolbarElement', ['Component'], function ( Component )
 		 */
 		_render()
 		{
-			return '<a class="toolbar-element" href="' + this.props.href + '">' + this.props.name + '</a>';
+			return '<li title="' + this.props.name + '"><a href="' + this.props.href + '">' + this.props.name + '</a></li>';
 		}
 	}
 

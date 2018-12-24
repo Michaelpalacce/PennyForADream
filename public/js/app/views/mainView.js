@@ -35,9 +35,10 @@ define( 'MainView', ['View'], function ( View )
 
 			this.toolbar	= new Toolbar({
 				elements: {
-					Home		: '/',
-					About		: '/about',
-					Charities	: '/charities',
+					Home			: '/',
+					About			: '/about',
+					Charities		: '/charities',
+					'Support Us'	: '/support',
 				}
 			});
 			this.dreamBox	= new DreamBox();
@@ -46,7 +47,7 @@ define( 'MainView', ['View'], function ( View )
 				dreamBox	: this.dreamBox
 			} );
 
-			this.toolbar.attachTo( this.appElement );
+			this.toolbar.attachTo( $( '#body' ) );
 			this.pony.attachTo( this.appElement );
 			this.coinBag.attachTo( this.appElement );
 			this.coinBag.fillWithCoins();

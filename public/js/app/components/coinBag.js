@@ -9,11 +9,7 @@ define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 		{
 			super( props );
 
-			this.state	= {
-				coins	: [],
-				x		: 0,
-				zIndex	: 1
-			};
+			this.state	= { coins : [] };
 		}
 
 		/**
@@ -40,6 +36,7 @@ define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 			this.state.coins.forEach( ( coin )=>{
 				coin.remove();
 			});
+
 			let coins			= [];
 			let x				= 0;
 			let spacing			= 50;
@@ -77,50 +74,64 @@ define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 							{
 								coin.minimize();
 							}
-						})
+						});
+
+						component.element.one( 'transitionend', ( event ) =>
+						{
+							// Check if the element is still clicked
+							if ( component.state.clicked === true )
+							{
+								this.showDreamBox( component )
+							}
+						});
 					}
 
-
-					value ? this.showDreamBox( component ) : this.hideDreamBox();
+					value === false ? this.hideDreamBox() : null;
 				} );
 
 				coins.push( coin );
 			}
 
-			this.setState( {
-				coins: coins,
-				x: x,
-				zIndex: zIndex
-			} );
+			this.setState( { coins: coins } );
 		}
 
+		/**
+		 * @brief	Show the dream Box next to the given coin
+		 *
+		 * @param	Coin coin
+		 *
+		 * @return	void
+		 */
 		showDreamBox( coin )
 		{
 			let dreamBox	= this.props.dreamBox;
-			setTimeout( ()=>{
-				dreamBox.attachTo( $( '#app' ) );
+			dreamBox.attachTo( $( '#app' ) );
 
-				let elementPositions	= coin.element.position();
-				let elementOuterWidth	= dreamBox.element.outerWidth();
-				let coinOuterWidth		= coin.element.outerWidth();
-				let position			= elementPositions.left + coinOuterWidth * 2;
+			let elementPositions	= coin.element.position();
+			let elementOuterWidth	= dreamBox.element.outerWidth();
+			let coinOuterWidth		= coin.element.outerWidth();
+			let position			= elementPositions.left + coinOuterWidth * 2;
 
-				if ( position + elementOuterWidth > window.innerWidth )
+			if ( position + elementOuterWidth > window.innerWidth )
+			{
+				position	= elementPositions.left - elementOuterWidth;
+			}
+			dreamBox.setState(
 				{
-					position	= elementPositions.left - elementOuterWidth;
+					style:
+						{
+							left: position,
+							top: coin.element.position().top + 35
+						}
 				}
-				dreamBox.setState(
-					{
-						style:
-							{
-								left: position,
-								top: coin.element.position().top + 35
-							}
-					}
-				);
-			}, 500 );
+			);
 		}
 
+		/**
+		 * @brief	Find and hide the dreambox
+		 *
+		 * @return	void
+		 */
 		hideDreamBox()
 		{
 			this.props.dreamBox.detach();

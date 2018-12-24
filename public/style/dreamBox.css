@@ -1,6 +1,6 @@
 .dream-box{
-    width: 300px;
-    margin: 20px auto;
+    width: 350px;
+    margin: 10px auto;
     background: #fff;
     padding: 20px;
     text-align: center;
@@ -23,6 +23,11 @@
 
 .dream-input{
     width: 100%;
+
+    border-bottom: 1px dashed grey;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
 }
 
 @keyframes fadein {

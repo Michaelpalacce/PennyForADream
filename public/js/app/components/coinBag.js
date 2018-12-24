@@ -56,10 +56,13 @@ define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 				x		= x + spacing;
 				zIndex	++;
 
+				let ySpacing		= Math.floor( Math.random() * 8 );
+
 				let coin	= new Coin({
 					style: {
 						zIndex	: zIndex,
 						left	: x,
+						bottom	: ySpacing + 25,
 						width	: width + 'px',
 						height	: height + 'px'
 					}
@@ -107,21 +110,14 @@ define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 			let dreamBox	= this.props.dreamBox;
 			dreamBox.attachTo( $( '#app' ) );
 
-			let elementPositions	= coin.element.position();
-			let elementOuterWidth	= dreamBox.element.outerWidth();
-			let coinOuterWidth		= coin.element.outerWidth();
-			let position			= elementPositions.left + coinOuterWidth * 2;
+			let coinElement = coin.element;
 
-			if ( position + elementOuterWidth > window.innerWidth )
-			{
-				position	= elementPositions.left - elementOuterWidth;
-			}
 			dreamBox.setState(
 				{
 					style:
 						{
-							left: position,
-							top: coin.element.position().top + 35
+							left: coinElement.position().left - coinElement.outerWidth() / 2,
+							top: coinElement.position().top + coinElement.outerHeight() * 2
 						}
 				}
 			);

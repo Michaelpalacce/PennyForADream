@@ -9,7 +9,7 @@
     padding: 0;
     background: transparent;
     z-index:10;
-    overflow:hidden;
+    overflow: hidden;
 }
 .menu li a{
     display: inline-block;
@@ -20,7 +20,6 @@
     text-align:center;
     color: #72739f;
     position: relative;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: background 0.1s ease-in-out;
 }
 .menu li a:before {
@@ -55,7 +54,7 @@
 .menu-bar li a:hover,
 .menu li a:hover,
 .menu li:first-child a {
-    background: black;
+    background: transparent;
     color: #fff;
 }
 .menu-bar{
@@ -74,12 +73,12 @@
     text-decoration:none;
     position: relative;
     font-family:verdana;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /*border-bottom: 1px solid rgba(0, 0, 0, 0.05);*/
     transition: background 0.1s ease-in-out;
 }
 .menu-bar li:first-child a{
     height:5em;
-    background: black;
+    background: transparent;
     color: #fff;
     line-height:5
 }

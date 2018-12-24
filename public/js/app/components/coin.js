@@ -12,6 +12,7 @@ define( 'Coin', ['Component'],
 			{
 				super( props );
 				this.clickedClass	= 'clicked';
+				this.shakeClass		= 'shake';
 				this.state			= {
 					clicked: false
 				};
@@ -24,7 +25,7 @@ define( 'Coin', ['Component'],
 			 */
 			_render()
 			{
-				return '<img src="/img/coin.png" alt="coin" class="coin">';
+				return '<img src="/img/coin.png" alt="coin" class="coin shake">';
 			}
 
 			/**
@@ -40,17 +41,21 @@ define( 'Coin', ['Component'],
 				super.attachEvents();
 
 				$( this.element ).on( 'click', ()=>{
-					this.setState({ clicked: !this.state.clicked });
+					this.setState( { clicked: ! this.state.clicked } );
 				});
 
 				this.addOnStateChanged( 'clicked', ( newState )=>{
 					if ( newState === true )
 					{
-						this.element.addClass( this.clickedClass );
+						this.element.removeClass( this.shakeClass );
+						setTimeout(()=>{
+							this.element.addClass( this.clickedClass );
+						}, 50);
 					}
 					else
 					{
 						this.element.removeClass( this.clickedClass );
+						this.element.addClass( this.shakeClass );
 					}
 				} )
 			}
@@ -60,7 +65,7 @@ define( 'Coin', ['Component'],
 			 */
 			minimize()
 			{
-				this.setState({clicked: false});
+				this.setState( { clicked: false } );
 			}
 		}
 

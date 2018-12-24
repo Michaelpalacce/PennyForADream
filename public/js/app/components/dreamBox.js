@@ -23,7 +23,7 @@ define( 'DreamBox', ['Component'], function ( Component )
 		 */
 		_render()
 		{
-			return '<div class="dream-box"><input type="text" placeholder="Penny for a dream?" class="dream-input"></div>';
+			return '<div class="dream-box"> <textarea placeholder="\nPenny for a dream?" class="dream-input" autofocus></textarea> </div>';
 		}
 	}
 

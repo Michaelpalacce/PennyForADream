@@ -1,13 +1,12 @@
 .dream-box{
-    width: 350px;
-    margin: 10px auto;
+    width: 300px;
     background: #fff;
-    padding: 20px;
     text-align: center;
     font-weight: 900;
     color: #fff;
     position:fixed;
     animation: fadein 1s;
+    border-radius: 20px;
 }
 
 .dream-bo:before {
@@ -22,12 +21,24 @@
 }
 
 .dream-input{
-    width: 100%;
+    width: 80%;
+    resize: none;
+    height: 6em;
+    border: 0;
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, white 10px, transparent 10px),
+        linear-gradient(to left, white 10px, transparent 10px),
+        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    line-height: 31px;
+    padding: 8px 10px;
+    overflow: hidden;
+}
 
-    border-bottom: 1px dashed grey;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+.dream-input::placeholder{
+    text-align: center;
+    font-size: 22px;
+    color: lightgrey;
 }
 
 @keyframes fadein {

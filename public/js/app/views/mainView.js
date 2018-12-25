@@ -12,6 +12,7 @@ define( 'MainView', ['View'], function ( View )
 			this.pony		= null;
 			this.coinBag	= null;
 			this.toolbar	= null;
+			this.canvas		= null;
 			this.appElement	= $( '#app' );
 		}
 
@@ -32,6 +33,7 @@ define( 'MainView', ['View'], function ( View )
 			const Pony		= require( 'Pony' );
 			const CoinBag	= require( 'CoinBag' );
 			const Toolbar	= require( 'Toolbar' );
+			const Canvas	= require( 'Canvas' );
 
 			this.toolbar	= new Toolbar({
 				elements: {
@@ -42,12 +44,14 @@ define( 'MainView', ['View'], function ( View )
 				}
 			});
 			this.dreamBox	= new DreamBox();
+			this.canvas		= new Canvas();
 			this.pony		= new Pony();
 			this.coinBag	= new CoinBag( {
 				dreamBox	: this.dreamBox
 			} );
 
-			this.toolbar.attachTo( $( '#body' ) );
+			this.toolbar.attachTo( $( '#body' ),  );
+			this.canvas.attachTo( $( '#body' ), false );
 			this.pony.attachTo( this.appElement );
 			this.coinBag.attachTo( this.appElement );
 			this.coinBag.fillWithCoins();

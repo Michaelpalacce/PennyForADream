@@ -145,14 +145,15 @@ define( 'Component', ['makeId'], function ( makeId )
 		 * @brief	Detaches and then reattaches the element to the given elementToAppendTo
 		 *
 		 * @param	jQueryElement elementToAppendTo
+		 * @param	Boolean append
 		 *
 		 * @return	void
 		 */
-		attachTo( elementToAppendTo )
+		attachTo( elementToAppendTo, append = true )
 		{
 			this.detach();
 
-			this.element.appendTo( elementToAppendTo );
+			append === true ? this.element.appendTo( elementToAppendTo ) : this.element.prependTo( elementToAppendTo );
 		}
 
 		/**

@@ -20,7 +20,8 @@ define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 		attachEvents()
 		{
 			super.attachEvents();
-			$( window ).on( 'resize', ()=>{
+			$( window ).on( 'resize', ()=>
+			{
 				this.fillWithCoins();
 				this.hideDreamBox();
 			});

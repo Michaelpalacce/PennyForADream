@@ -3,7 +3,7 @@
 /**
  * @brief	Canvas component used to draw on the background
  */
-define( 'Canvas', ['Component'], function ( Component )
+define( 'Canvas', ['Component', 'CanvasRectangle'], function ( Component, CanvasRectangle )
 {
 	class Canvas extends Component
 	{
@@ -22,6 +22,16 @@ define( 'Canvas', ['Component'], function ( Component )
 
 			super( props );
 			this.context	= this.getContext();
+			this.state		= {
+				rectangles: [new CanvasRectangle( 10, 10, 100, 20, 'black', this.getContext() )]
+			};
+		}
+
+		draw()
+		{
+			this.state.rectangles.forEach( ( rectangle )=>{
+				rectangle.draw();
+			});
 		}
 
 		/**
@@ -31,14 +41,34 @@ define( 'Canvas', ['Component'], function ( Component )
 		 */
 		getContext()
 		{
-			if ( this.context === null )
+			if ( this.context === undefined )
 			{
-				let canvas		= document.getElementById( 'background-canvas' );
+				let canvas		= this.element[0];
 
 				this.context	= canvas.getContext( '2d' );
 			}
 
 			return this.context;
+		}
+
+		/**
+		 * @brief	Attaches events on resize
+		 *
+		 * @return	void
+		 */
+		attachEvents()
+		{
+			super.attachEvents();
+			let canvas		= this.element[0];
+			canvas.width	= window.innerWidth;
+			canvas.height	= window.innerHeight;
+
+			$( window ).on( 'resize', ()=>
+			{
+				canvas.width	= window.innerWidth;
+				canvas.height	= window.innerHeight;
+			});
+
 		}
 
 		/**
@@ -48,7 +78,7 @@ define( 'Canvas', ['Component'], function ( Component )
 		 */
 		_render()
 		{
-			return '<canvas id="background-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;"></canvas>';
+			return '<canvas id="background-canvas" style="position: fixed; top: 0; left: 0;"></canvas>';
 		}
 	}
 

@@ -55,6 +55,7 @@ define( 'MainView', ['View'], function ( View )
 			this.pony.attachTo( this.appElement );
 			this.coinBag.attachTo( this.appElement );
 			this.coinBag.fillWithCoins();
+			this.canvas.draw();
 		}
 	}
 

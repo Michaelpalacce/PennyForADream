@@ -21,6 +21,7 @@
 }
 
 .dream-input{
+    margin: 10px;
     width: 80%;
     resize: none;
     height: 6em;
@@ -44,4 +45,24 @@
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+.dream-submit{
+    margin: 5px;
+    padding: 10px;
+    overflow: hidden;
+
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+    background-color: turquoise;
+    color: #ecf0f1;
+
+    transition: background-color .3s;
+}
+
+.dream-submit:hover, .dream-submit:focus {
+    background-color: darkturquoise;
 }

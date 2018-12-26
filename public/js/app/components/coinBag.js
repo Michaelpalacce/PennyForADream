@@ -132,6 +132,8 @@ define( 'CoinBag', ['Component', 'Coin'] , function ( Component, Coin )
 		hideDreamBox()
 		{
 			this.props.dreamBox.detach();
+			this.props.dreamBox.dreamInput.val( '' );
+			this.props.dreamBox.setState( { inputLength: 0 } );
 		}
 
 		/**

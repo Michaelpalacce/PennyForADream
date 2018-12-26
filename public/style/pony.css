@@ -1,12 +1,12 @@
 .pony{
-    width: auto;
-    height: 400px;
-    position: relative;
-    border-radius: 50px;
-    user-select: none;
+	width: auto;
+	height: 400px;
+	position: relative;
+	border-radius: 50px;
+	user-select: none;
 }
 
 .pony-container{
-    text-align: center;
-    user-select: none;
+	text-align: center;
+	user-select: none;
 }

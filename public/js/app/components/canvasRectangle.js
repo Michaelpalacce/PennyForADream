@@ -10,8 +10,8 @@ define( 'CanvasRectangle', [], function ()
 		 * @param	Number y
 		 * @param	Number xLength
 		 * @param	Number yLength
-		 * @param	stirng color
-		 * @param	CanvasContest c
+		 * @param	String color
+		 * @param	CanvasContext c
 		 */
 		constructor( x, y, xLength, yLength, color, c )
 		{
@@ -44,9 +44,8 @@ define( 'CanvasRectangle', [], function ()
 			this.c.strokeRect( this.x, this.y, this.xLength, this.yLength );
 			this.c.fillStyle	= this.color;
 			this.c.lineWidth	= 1;
-			this.c.font			= '15pt sans-serif';
-			this.c.strokeText('Text', this.x, this.y + this.yLength );
-			this.c.stroke();
+			this.c.font			= '12pt sans-serif';
+			this.c.fillText('Text', this.x, this.y );
 		}
 	}
 

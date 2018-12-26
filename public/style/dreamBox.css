@@ -1,68 +1,68 @@
 .dream-box{
-    width: 300px;
-    background: #fff;
-    text-align: center;
-    font-weight: 900;
-    color: #fff;
-    position:fixed;
-    animation: fadein 1s;
-    border-radius: 20px;
+	width: 300px;
+	background: #fff;
+	text-align: center;
+	font-weight: 900;
+	color: #fff;
+	position:fixed;
+	animation: fadein 1s;
+	border-radius: 20px;
 }
 
 .dream-bo:before {
-    content: "";
-    width: 0;
-    height: 0;
-    position: fixed;
-    border-left: 10px solid transparent;
-    border-right: 10px solid #00bfb6;
-    border-top: 10px solid #00bfb6;
-    border-bottom: 10px solid transparent;
+	content: "";
+	width: 0;
+	height: 0;
+	position: fixed;
+	border-left: 10px solid transparent;
+	border-right: 10px solid #00bfb6;
+	border-top: 10px solid #00bfb6;
+	border-bottom: 10px solid transparent;
 }
 
 .dream-input{
-    margin: 10px;
-    width: 80%;
-    resize: none;
-    height: 6em;
-    border: 0;
-    background-attachment: local;
-    background-image:
-        linear-gradient(to right, white 10px, transparent 10px),
-        linear-gradient(to left, white 10px, transparent 10px),
-        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
-    line-height: 31px;
-    padding: 8px 10px;
-    overflow: hidden;
+	margin: 10px;
+	width: 80%;
+	resize: none;
+	height: 6em;
+	border: 0;
+	background-attachment: local;
+	background-image:
+		linear-gradient(to right, white 10px, transparent 10px),
+		linear-gradient(to left, white 10px, transparent 10px),
+		repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+	line-height: 31px;
+	padding: 8px 10px;
+	overflow: hidden;
 }
 
 .dream-input::placeholder{
-    text-align: center;
-    font-size: 22px;
-    color: lightgrey;
+	text-align: center;
+	font-size: 22px;
+	color: lightgrey;
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+	from { opacity: 0; }
+	to   { opacity: 1; }
 }
 
 .dream-submit{
-    margin: 5px;
-    padding: 10px;
-    overflow: hidden;
+	margin: 5px;
+	padding: 10px;
+	overflow: hidden;
 
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+	border-width: 0;
+	outline: none;
+	border-radius: 2px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
 
-    background-color: turquoise;
-    color: #ecf0f1;
+	background-color: turquoise;
+	color: #ecf0f1;
 
-    transition: background-color .3s;
+	transition: background-color .3s;
 }
 
 .dream-submit:hover, .dream-submit:focus {
-    background-color: darkturquoise;
+	background-color: darkturquoise;
 }

@@ -45,7 +45,7 @@ define( 'CanvasRectangle', [], function ()
 			this.c.fillStyle	= this.color;
 			this.c.lineWidth	= 1;
 			this.c.font			= '12pt sans-serif';
-			this.c.fillText('Text', this.x, this.y );
+			this.c.fillText('My dream is to go to space and explore the universeMy dream is to go to space and explore the un', this.x, this.y + this.yLength );
 		}
 	}
 

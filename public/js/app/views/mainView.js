@@ -44,18 +44,18 @@ define( 'MainView', ['View'], function ( View )
 				}
 			});
 			this.dreamBox	= new DreamBox();
-			this.canvas		= new Canvas();
+			// this.canvas		= new Canvas();
 			this.pony		= new Pony();
 			this.coinBag	= new CoinBag( {
 				dreamBox	: this.dreamBox
 			} );
 
-			this.toolbar.attachTo( $( '#body' ),  );
-			this.canvas.attachTo( $( '#body' ), false );
+			this.toolbar.attachTo( $( '#body' )     );
+			// this.canvas.attachTo( $( '#body' ), false );
 			this.pony.attachTo( this.appElement );
 			this.coinBag.attachTo( this.appElement );
 			this.coinBag.fillWithCoins();
-			this.canvas.draw();
+			// this.canvas.draw();
 		}
 	}
 

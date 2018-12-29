@@ -38,7 +38,7 @@ define( 'DreamBox', ['Component'], function ( Component )
 			});
 
 			this.addOnStateChanged( 'inputLength', ( value )=>{
-				$( '#dream-box-message-length' ).text( value );
+				this.element.find( '#dream-box-message-length' ).text( value );
 			} );
 		}
 
